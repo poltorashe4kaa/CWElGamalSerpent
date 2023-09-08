@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="598.0" style="-fx-background-color: #c0d6ba;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cryptographycw.controllers.HelloController">
+   <children>
+      <Label layoutX="28.0" layoutY="70.0" prefHeight="30.0" prefWidth="403.0" text="Введите данные пользователя, к которому хотите отправить сообщение:" />
+      <TextField fx:id="hostTextField" layoutX="65.0" layoutY="111.0" prefHeight="26.0" prefWidth="240.0" text="127.0.0.1" />
+      <TextField fx:id="portTextField" layoutX="65.0" layoutY="159.0" prefHeight="26.0" prefWidth="240.0" />
+      <Label layoutX="29.0" layoutY="111.0" prefHeight="26.0" prefWidth="36.0" text="Хост:" />
+      <Label layoutX="29.0" layoutY="159.0" prefHeight="26.0" prefWidth="36.0" text="Порт:" />
+      <Button fx:id="connectBtn" layoutX="28.0" layoutY="226.0" mnemonicParsing="false" onAction="#connectBtnClick" text="Подключиться" />
+      <Label layoutX="29.0" layoutY="38.0" text="Текущий адресс: " />
+      <Label fx:id="addressLabel" layoutX="125.0" layoutY="38.0" />
+      <Label fx:id="statusLabel" layoutX="230.0" layoutY="340.0" prefHeight="18.0" prefWidth="138.0" />
+   </children>
+</AnchorPane>

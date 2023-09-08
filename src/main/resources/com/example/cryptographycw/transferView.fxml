@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="604.0" style="-fx-background-color: #c0d6ba;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cryptographycw.controllers.TransferController">
+   <children>
+      <AnchorPane layoutX="16.0" layoutY="73.0" prefHeight="384.0" prefWidth="286.0" style="-fx-background-color: #c0d6ba;">
+         <children>
+            <Button fx:id="toSend" layoutX="48.0" layoutY="72.0" mnemonicParsing="false" onAction="#toSendClick" text="Отправить" />
+            <TextField fx:id="pathFileField" layoutX="47.0" layoutY="30.0" />
+            <Label layoutX="14.0" layoutY="34.0" text="Файл: " />
+            <Button fx:id="reviewFileBtn" layoutX="204.0" layoutY="30.0" mnemonicParsing="false" onAction="#reviewFileBtnClick" text="Обзор" />
+            <Label fx:id="labelSendingStatus" layoutX="134.0" layoutY="188.0" />
+            <Label fx:id="labelSendingStatus" layoutX="47.0" layoutY="119.0" prefHeight="18.0" prefWidth="150.0" />
+            <Button layoutX="134.0" layoutY="71.0" mnemonicParsing="false" onAction="#cancel1BtnClick" prefHeight="26.0" prefWidth="69.0" text="Отмена" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="311.0" layoutY="73.0" prefHeight="384.0" prefWidth="286.0" style="-fx-background-color: #c0d6ba;">
+         <children>
+            <Button fx:id="receiveBtn" layoutX="196.0" layoutY="97.0" mnemonicParsing="false" onAction="#receiveBtnClick" text="Получить" />
+            <TextField fx:id="pathDirectoryField" layoutX="57.0" layoutY="63.0" />
+            <Label layoutX="18.0" layoutY="67.0" text="Папка: " />
+            <Button fx:id="reviewDirectoryBtn" layoutX="210.0" layoutY="63.0" mnemonicParsing="false" onAction="#reviewDirectoryBtnClick" prefHeight="26.0" prefWidth="58.0" text="Обзор" />
+            <Label fx:id="labelReceivingStatus" layoutX="18.0" layoutY="123.0" prefHeight="18.0" prefWidth="105.0" />
+            <Button fx:id="refreshFilesAvailable" layoutX="108.0" layoutY="343.0" mnemonicParsing="false" onAction="#refreshFilesAvailableClick" text="Обновить" />
+            <ScrollPane layoutX="18.0" layoutY="174.0" prefHeight="162.0" prefWidth="250.0">
+               <content>
+                  <VBox fx:id="filesAvailableVBox" prefHeight="157.0" prefWidth="246.0" />
+               </content>
+            </ScrollPane>
+            <TextField fx:id="fileNameTextField" layoutX="18.0" layoutY="32.0" prefHeight="26.0" prefWidth="250.0" />
+            <Label layoutX="18.0" layoutY="14.0" text="Имя файла, который хотите получить: " />
+            <Label layoutX="18.0" layoutY="150.0" text="Файлы загруженные на сервер:" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="16.0" layoutY="43.0" text="Отправить данные">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="329.0" layoutY="43.0" text="Получить данные">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

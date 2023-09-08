@@ -1,0 +1,16 @@
+
+W
+java:S2209?"5Change this instance-reference to a static reference.(ßÉòËûÿÿÿÿ8ˆü¤‰1
+P
+java:S1481@".Remove this unused "readBytes" local variable.(­­ß¿üÿÿÿÿ8Ùâ•êˆ1
+Z	java:S106G"9Replace this use of System.out or System.err by a logger.(É¼€øÿÿÿÿ8Üâ•êˆ1
+Z	java:S106J"9Replace this use of System.out or System.err by a logger.(Í¡íôûÿÿÿÿ8Şâ•êˆ1
+W
+java:S2209^"5Change this instance-reference to a static reference.(ßÉòËûÿÿÿÿ8–ˆü¤‰1
+P
+java:S1481_".Remove this unused "readBytes" local variable.(­­ß¿üÿÿÿÿ8ãâ•êˆ1
+X	java:S125b"<This block of commented-out lines of code should be removed.(­×ş8ãâ•êˆ1
+Z	java:S106g"9Replace this use of System.out or System.err by a logger.(É¼€øÿÿÿÿ8äâ•êˆ1
+Z	java:S106l"9Replace this use of System.out or System.err by a logger.(ÄÑÎÖşÿÿÿÿ8åâ•êˆ1
+v
+java:S3012Ì"YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(¯ÁĞ~8ôâ•êˆ1

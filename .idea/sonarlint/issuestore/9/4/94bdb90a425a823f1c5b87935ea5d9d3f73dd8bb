@@ -1,0 +1,35 @@
+
+c
+java:S2259P"AA "NullPointerException" could be thrown; "msg" is nullable here.(ÅÑêÍıÿÿÿÿ8’¯ß—‰1
+Z	java:S106#"9Replace this use of System.out or System.err by a logger.(ÉºùÖúÿÿÿÿ8Ÿ¯ß—‰1
+Z	java:S1067"9Replace this use of System.out or System.err by a logger.(™Õ¤’úÿÿÿÿ8¨¯ß—‰1
+U	java:S106;"9Replace this use of System.out or System.err by a logger.(óâ¨È8¨¯ß—‰1
+T	java:S106>"9Replace this use of System.out or System.err by a logger.(²ŞM8«¯ß—‰1
+U	java:S106B"9Replace this use of System.out or System.err by a logger.(‚î†8±¯ß—‰1
+_
+java:S3878E"CDisambiguate this call by either casting as "Object" or "Object[]".(Œªğ_8¯¯ß—‰1
+Z	java:S106L"9Replace this use of System.out or System.err by a logger.(¦àşÿÿÿÿ8·¯ß—‰1
+o
+java:S3776X"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Ì¦µ˜8µ¯ß—‰1
+U	java:S106\"9Replace this use of System.out or System.err by a logger.(¿Úã´8¹¯ß—‰1
+U	java:S106e"9Replace this use of System.out or System.err by a logger.(ú¼İØ8º¯ß—‰1
+Z	java:S106j"9Replace this use of System.out or System.err by a logger.(ÆÇøšúÿÿÿÿ8¼¯ß—‰1
+Z	java:S106p"9Replace this use of System.out or System.err by a logger.(ã¿¢Ôùÿÿÿÿ8Á¯ß—‰1
+J	java:S108s")Either remove or fill this block of code.(ÒÌâ–øÿÿÿÿ8´à—‰1
+]	java:S125z"<This block of commented-out lines of code should be removed.(İ†Ã üÿÿÿÿ8½¯ß—‰1
+[	java:S106Œ"9Replace this use of System.out or System.err by a logger.(Ö¦Ôıÿÿÿÿ8Ä¯ß—‰1
+^	java:S125˜"<This block of commented-out lines of code should be removed.(ƒÿœÖÿÿÿÿÿ8Â¯ß—‰1
+F
+java:S1481"(Remove this unused "buf" local variable.(´œ‡€8Ã¯ß—‰1
+V	java:S106 "9Replace this use of System.out or System.err by a logger.(íÿÁ†8Æ¯ß—‰1
+V	java:S106¨"9Replace this use of System.out or System.err by a logger.(İª“¥8ª¶¡¥‰1
+S
+java:S1128"6Remove this unused import 'lombok.extern.slf4j.Slf4j'.(ûúÄ®8©ó›‰1
+z
+java:S1128	"^Remove this unused import 'org.controlsfx.control.tableview2.filter.filtereditor.SouthFilter'.(Ç¶‡?8©ó›‰1
+L
+java:S1068"/Remove this unused "firstClient" private field.(ì¬äî8Ê¯ß—‰1
+R
+java:S1068"0Remove this unused "secondClient" private field.(ñ¢Ù£ùÿÿÿÿ8Ê¯ß—‰1
+L
+java:S1068"*Remove this unused "symKey" private field.(ÒæÎ°üÿÿÿÿ8Ê¯ß—‰1

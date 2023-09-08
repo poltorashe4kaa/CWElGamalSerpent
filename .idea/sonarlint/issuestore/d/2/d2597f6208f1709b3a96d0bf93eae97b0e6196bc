@@ -1,0 +1,34 @@
+
+r	java:S117a"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤Ÿİ§ÿÿÿÿÿ8ıÄÕ™‰1
+r	java:S117a"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤Ÿİ§ÿÿÿÿÿ8şÄÕ™‰1
+r	java:S117a"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤Ÿİ§ÿÿÿÿÿ8şÄÕ™‰1
+r	java:S117a"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤Ÿİ§ÿÿÿÿÿ8şÄÕ™‰1
+s	java:S117Ò"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤Ÿİ§ÿÿÿÿÿ8şÄÕ™‰1
+s	java:S117Ò"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤Ÿİ§ÿÿÿÿÿ8şÄÕ™‰1
+s	java:S117Ò"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤Ÿİ§ÿÿÿÿÿ8şÄÕ™‰1
+s	java:S117Ò"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤Ÿİ§ÿÿÿÿÿ8şÄÕ™‰1
+n	java:S117®"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£–8şÄÕ™‰1
+s	java:S117î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â äéøÿÿÿÿ8şÄÕ™‰1
+s	java:S117î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â äéøÿÿÿÿ8ÿÄÕ™‰1
+s	java:S117î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â äéøÿÿÿÿ8ÿÄÕ™‰1
+i
+java:S3008B"LRename this field "K" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»’—ä8íËÕ™‰1
+;
+java:S3010H"Remove this assignment of "K".(áååÿ8ñËÕ™‰1
+o
+java:S3776P"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ÓİÔŸ8öËÕ™‰1
+`
+java:S1659a">Declare "B" and all following declarations on a separate line.(¤Ÿİ§ÿÿÿÿÿ8÷ËÕ™‰1
+U	java:S106U"9Replace this use of System.out or System.err by a logger.(¶à‡Ñ8øËÕ™‰1
+C
+java:S1110["!Remove these useless parentheses.(æÇ·ƒùÿÿÿÿ8úËÕ™‰1
+p
+java:S3776Ã"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ı”òŸ8ÿËÕ™‰1
+a
+java:S1659Ò">Declare "B" and all following declarations on a separate line.(¤Ÿİ§ÿÿÿÿÿ8€ÌÕ™‰1
+>
+java:S1110Ì"!Remove these useless parentheses.(‘ÅæO8ÌÕ™‰1
+a
+java:S1659Á">Declare "p" and all following declarations on a separate line.(˜Şá‘şÿÿÿÿ8…ÌÕ™‰1
+a
+java:S1659î">Declare "L" and all following declarations on a separate line.(â äéøÿÿÿÿ8‰ÌÕ™‰1
