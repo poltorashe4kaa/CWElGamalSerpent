@@ -106,7 +106,7 @@ public class ElGamal {
                     x.compareTo(n.subtract(BigInteger.ONE)) == 0) {
                 continue; // a^d == 1 mod n
             }
-
+            // r < s, a^(2^r)*d
             int j = 0;
             for (j = 0; j < r; j++) {
                 x = x.modPow(BigInteger.TWO, n);
@@ -114,7 +114,6 @@ public class ElGamal {
                     return false;
                 }
 
-                // r < s, a^(2^r)*d
                 if (x.compareTo(n.subtract(BigInteger.ONE)) == 0) {
                     break;
                 }

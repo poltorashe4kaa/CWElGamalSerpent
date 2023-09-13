@@ -15,7 +15,6 @@ public class Serpent {
 
     private byte[][] K = new byte[33][16];
 
-
     public Serpent(int[] key) {
         this.key = key.clone();
         getPuddedKey();
@@ -31,11 +30,13 @@ public class Serpent {
         }
         return resArray;
     }
+
     public static int getBitFromArray(byte[] array, int pos){
         int bytePos = pos / 8;
         int bitPos = pos % 8;
         return ((array[bytePos] >>> (8 - bitPos - 1)) & 0b1);
     }
+
     public static void setBitIntoArray(byte[] array, int pos, int bit){
         int bytePos = pos / 8;
         int bitPos = pos % 8;
@@ -43,6 +44,7 @@ public class Serpent {
         oldByte |= bit << (8 - bitPos - 1);
         array[bytePos] = oldByte;
     }
+
     public void getPuddedKey() {
         int[] pudded = new int[8];
         int len = key.length;

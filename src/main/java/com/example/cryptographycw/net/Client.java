@@ -127,10 +127,19 @@ public class Client {
             return false;
         }
         long downloadedBytes = 0;
-
         Message downloadRequest = new Message("download", List.of(filename));
         sendMessage(downloadRequest, server);
 
+        byte[] initVector = new byte[0];
+        if (serverStream.hasNext()) {
+            Message msg = parseMessage(serverStream.nextLine());
+            if (msg.type.equals("init_vector")) {
+                byte[] bytes = ((String) msg.data.get(0)).getBytes();
+                System.out.println("sdfsdf: " + bytes);
+                initVector = Base64.getDecoder().decode(bytes);
+            }
+        }
+        
         Serpent serpent = new Serpent(symKey);
 
         try (OutputStream fileOutStream = new FileOutputStream(encryptedTargetFile.toFile())) {
@@ -155,7 +164,7 @@ public class Client {
         }
 
         String targetFile = dir.resolve(filename).toString();
-        decryptFile(targetFile, encryptedTargetFile.toString());
+        decryptFile(targetFile, encryptedTargetFile.toString(), initVector);
         try {
             Files.deleteIfExists(encryptedTargetFile);
         } catch (IOException e) {
@@ -166,12 +175,19 @@ public class Client {
     }
 
     public boolean loadFile(Path file) {
+        byte[] initVector = CFB.getInitVector();
         Message downloadRequest = new Message("load", List.of(file.getFileName().toString()));
         sendMessage(downloadRequest, server);
+        byte[] encodedBuf = Base64.getEncoder().encode(initVector);
+        String strBuf = new String(encodedBuf);
+        downloadRequest = new Message("init_vector", List.of(strBuf));
+        System.out.println("test strbuf: " + strBuf);
+        sendMessage(downloadRequest, server);
+
         Path encryptedFile = null;
         try {
             encryptedFile =  Files.createTempFile("encrypted", "tmp");
-            encryptFile(file.toString(), encryptedFile.toString());
+            encryptFile(file.toString(), encryptedFile.toString(), initVector);
         } catch (IOException e) {
            return false;
         }
@@ -186,8 +202,8 @@ public class Client {
                 buf = inputStream.readNBytes(BUFSIZ);
                 if (buf.length != 0) {
 //                    buf = cfb.encrypt(buf, cfb.getInitVector());
-                    byte[] encodedBuf = Base64.getEncoder().encode(buf);
-                    String strBuf = new String(encodedBuf);
+                    encodedBuf = Base64.getEncoder().encode(buf);
+                    strBuf = new String(encodedBuf);
                     sendMessage(new Message("loading", List.of(strBuf)), server);
                 }
             }
@@ -204,13 +220,13 @@ public class Client {
         return true;
     }
 
-    private void decryptFile(String targetFile, String encryptedFile) {
+    private void decryptFile(String targetFile, String encryptedFile, byte[] initVector) {
         try (InputStream iStream = new FileInputStream(encryptedFile);
              OutputStream oStream = new FileOutputStream(targetFile)) {
             Serpent serpent = new Serpent(symKey);
             CFB cfb = new CFB();
             cfb.setSerpent(serpent);
-            cfb.decrypt(iStream, oStream, cfb.getInitVector());
+            cfb.decrypt(iStream, oStream, initVector);
         } catch (FileNotFoundException e) {
             return;
         } catch (IOException e) {
@@ -236,14 +252,14 @@ public class Client {
         return null;
     }
 
-    private void encryptFile(String fileToEncrypt, String encryptedFile)
+    private void encryptFile(String fileToEncrypt, String encryptedFile, byte[] initVector)
     {
         try (InputStream iStream = new FileInputStream(fileToEncrypt);
              OutputStream oStream = new FileOutputStream(encryptedFile)) {
             Serpent serpent = new Serpent(symKey);
             CFB cfb = new CFB();
             cfb.setSerpent(serpent);
-            cfb.encrypt(iStream, oStream, cfb.getInitVector());
+            cfb.encrypt(iStream, oStream, initVector);
         } catch (IOException e) {
             e.printStackTrace();
         }

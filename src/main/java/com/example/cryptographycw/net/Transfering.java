@@ -4,6 +4,7 @@ package com.example.cryptographycw.net;
 import com.example.cryptographycw.entities.Message;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonToken;
 
 import java.io.*;
 import java.math.BigInteger;
@@ -90,6 +91,8 @@ public class Transfering implements Runnable {
             //System.out.println(" type " + msg.type);
             if (msg.type.equals("download")) {
                 String filename = (String) msg.data.get(0);
+                byte[] encodedBuf = Base64.getEncoder().encode(getInitVector(filename));
+                sendMessage(new Message("init_vector", List.of(new String(encodedBuf))), client);
                 if (files.containsKey(filename)) {
                     downloadFile(filename, client);
                 } else {
@@ -101,6 +104,28 @@ public class Transfering implements Runnable {
                 if (files.containsKey(filename)) {
                     sendMessage(new Message("fail", List.of("file with this name already exist")), client);
                 } else {
+                    byte[] initVector = null;
+                    System.out.println("sfdsdfsdf");
+                    if (scanner.hasNext())
+                    {
+                        msg = parseMessage(scanner.nextLine());
+                        System.out.println("sdfsdfsdfsdfsdfsdfsdf");
+                        if (msg.type.equals("init_vector")){
+                            System.out.println("sdfsdfsdfsdfsdfsdfsdf");
+                            byte[] decodedBuf = Base64.getDecoder().decode(((String) msg.data.get(0)).getBytes());
+                            byte[] bytes = ((String) msg.data.get(0)).getBytes();
+                            System.out.println("sdfsdf: " + bytes);
+                            initVector = Base64.getDecoder().decode(bytes);
+                            System.out.println("dssdf" + initVector);
+                        }
+                    }
+                    System.out.println("dfdsfsdfsddfsddfsddf");
+                    if(initVector == null) {
+                        sendMessage(new Message("fail", List.of("file with this name already exist")), client);
+                        System.out.println("sdfdsdfkhbfdjhbsdkjndalknfskdjfnsdksjfbsdhfbdsf");
+                        return;
+                    }
+                    saveInitVector(filename, initVector);
                     System.out.println("filename" + filename);
                     files.put(filename, "");
                     loadFile(filename, client);
@@ -116,8 +141,31 @@ public class Transfering implements Runnable {
 
     }
 
-    private boolean downloadFile(String filename, CLIENT output) {
+    private byte[] getInitVector(String fileName){
+        Path file = sessionDir.resolve(fileName + "init_vector.txt");
+        System.out.println("filename - " + file.getFileName());
+        try {
+            return Files.readAllBytes(file);
+        } catch (IOException e) {
+            System.out.println("ERRRRROOOORRR");
+            throw new RuntimeException(e);}
+    }
 
+    private void saveInitVector(String fileName, byte[] initVector) {
+        byte[] arr = new byte[initVector.length];
+        for(int i = 0; i < initVector.length; i++){
+            arr[i] = initVector[i];
+        }
+        try (FileOutputStream fos = new FileOutputStream(sessionDir.resolve(fileName + "init_vector.txt").toFile())) {
+            fos.write(arr);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private boolean downloadFile(String filename, CLIENT output) {
         Path file = sessionDir.resolve(filename);
 
         final int BUFSIZ = 1024 * 1024; // Mb

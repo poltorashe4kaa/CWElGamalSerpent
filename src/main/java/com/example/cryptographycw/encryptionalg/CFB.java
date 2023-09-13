@@ -5,6 +5,8 @@ import lombok.Data;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,8 +16,14 @@ public class CFB {
 
     Serpent serpent;
 
-    public byte[] getInitVector(){
-        return new byte[]{1, 2,3,32,3,23,2,3,23,23,23, 12,123, 123,123,55};
+    public static byte[] getInitVector(){
+        byte[] bytes = new byte[16];
+        try {
+            SecureRandom.getInstanceStrong().nextBytes(bytes);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+        return bytes;
     }
 
 
